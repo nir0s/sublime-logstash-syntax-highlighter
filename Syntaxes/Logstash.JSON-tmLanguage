@@ -1,0 +1,60 @@
+{
+    "name": "Logstash",
+    "scopeName": "text.logstash",
+    "fileTypes": ["logstash.conf"],
+    "patterns": [
+        {
+            "match": "(\"@.+\")",
+            "name": "entity.name.tag.logstash",
+            "comment": "Field"
+        },
+        {
+            "match": "(\"%{.+}\")",
+            "name": "entity.name.tag.logstash",
+            "comment": "Groked Field"
+        },
+        {
+            "match": "(\".+\")",
+            "name": "string.text.logstash",
+            "comment": "String values"
+        },
+        {
+            "match": "^(input|filter|codec|output)",
+            "name": "entity.name.type.class.logstash",
+            "comment": "classes: inputs, codecs, filters and outputs"
+        },
+        {
+            "match": "^(\\s+)(\\w+)(\\s+{)",
+            "name": "text.logstash",
+            "captures": {
+                "2": { "name": "entity.name.function.logstash"}
+            },
+            "comment": "functions: types of inputs, codecs, filters and outputs"
+        },
+        {
+            "match": "^(\\s+)?#.+",
+            "name": "comment.line.number-sign.logstash",
+            "comment": "Comments"
+        },
+        {
+            "match": "^(\\s+)?(\\w+)(\\s+)?(=>)(\\s+)?(\\d+)",
+            "name": "keyword.text.logstash",
+            "captures": {
+                "2": { "name": "variable.text.logstash"},
+                "4": { "name": "keyword.operator.logstash"},
+                "6": { "name": "constant.numeric.logstash"}
+            },
+            "comment": "Variables: Number values"
+        },
+        {
+            "match": "^(\\s+)?(\\w+)(\\s+)?(=>)(\\s+)?",
+            "name": "keyword.text.logstash",
+            "captures": {
+                "2": { "name": "variable.text.logstash"},
+                "4": { "name": "keyword.operator.logstash"}
+            },
+            "comment": "Variables: String values"
+        }
+    ],
+    "uuid": "ca03e751-04ef-4330-9a6b-9b99aae1c418"
+}

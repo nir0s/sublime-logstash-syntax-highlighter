@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>logstash.conf</string>
+	</array>
+	<key>name</key>
+	<string>Logstash</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>Field</string>
+			<key>match</key>
+			<string>("@.+")</string>
+			<key>name</key>
+			<string>entity.name.tag.logstash</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Groked Field</string>
+			<key>match</key>
+			<string>("%{.+}")</string>
+			<key>name</key>
+			<string>entity.name.tag.logstash</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>String values</string>
+			<key>match</key>
+			<string>(".+")</string>
+			<key>name</key>
+			<string>string.text.logstash</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>classes: inputs, codecs, filters and outputs</string>
+			<key>match</key>
+			<string>^(input|filter|codec|output)</string>
+			<key>name</key>
+			<string>entity.name.type.class.logstash</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.logstash</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>functions: types of inputs, codecs, filters and outputs</string>
+			<key>match</key>
+			<string>^(\s+)(\w+)(\s+{)</string>
+			<key>name</key>
+			<string>text.logstash</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Comments</string>
+			<key>match</key>
+			<string>^(\s+)?#.+</string>
+			<key>name</key>
+			<string>comment.line.number-sign.logstash</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>variable.text.logstash</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.logstash</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.logstash</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Variables: Number values</string>
+			<key>match</key>
+			<string>^(\s+)?(\w+)(\s+)?(=&gt;)(\s+)?(\d+)</string>
+			<key>name</key>
+			<string>keyword.text.logstash</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>variable.text.logstash</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.logstash</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Variables: String values</string>
+			<key>match</key>
+			<string>^(\s+)?(\w+)(\s+)?(=&gt;)(\s+)?</string>
+			<key>name</key>
+			<string>keyword.text.logstash</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.logstash</string>
+	<key>uuid</key>
+	<string>ca03e751-04ef-4330-9a6b-9b99aae1c418</string>
+</dict>
+</plist>
