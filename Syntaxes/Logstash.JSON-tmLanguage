@@ -4,24 +4,24 @@
     "fileTypes": [
         "logstash.conf",
         "logstash.conf.j2",
-        "logstash.conf.template",
+        "logstash.conf.template"
     ],
     "patterns": [
-        {
-            "match": "(\"@.+\")",
-            "name": "entity.name.tag.logstash",
-            "comment": "Field"
-        },
-        {
-            "match": "(\"%{.+}\")",
-            "name": "entity.name.tag.logstash",
-            "comment": "Groked Field"
-        },
-        {
-            "match": "(\".+\")",
-            "name": "string.text.logstash",
-            "comment": "String values"
-        },
+        // {
+        //     "match": "(\"@.+\")",
+        //     "name": "entity.name.tag.logstash",
+        //     "comment": "Field"
+        // },
+        // {
+        //     "match": "(\"%{.+}\")",
+        //     "name": "entity.name.tag.logstash",
+        //     "comment": "Groked Field"
+        // },
+        // {
+        //     "match": "(\".+\")",
+        //     "name": "string.text.logstash",
+        //     "comment": "String values"
+        // },
         {
             "match": "^(input|filter|codec|output)",
             "name": "entity.name.type.class.logstash",

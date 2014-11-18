@@ -5,35 +5,13 @@
 	<key>fileTypes</key>
 	<array>
 		<string>logstash.conf</string>
+		<string>logstash.conf.j2</string>
+		<string>logstash.conf.template</string>
 	</array>
 	<key>name</key>
 	<string>Logstash</string>
 	<key>patterns</key>
 	<array>
-		<dict>
-			<key>comment</key>
-			<string>Field</string>
-			<key>match</key>
-			<string>("@.+")</string>
-			<key>name</key>
-			<string>entity.name.tag.logstash</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>Groked Field</string>
-			<key>match</key>
-			<string>("%{.+}")</string>
-			<key>name</key>
-			<string>entity.name.tag.logstash</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>String values</string>
-			<key>match</key>
-			<string>(".+")</string>
-			<key>name</key>
-			<string>string.text.logstash</string>
-		</dict>
 		<dict>
 			<key>comment</key>
 			<string>classes: inputs, codecs, filters and outputs</string>
