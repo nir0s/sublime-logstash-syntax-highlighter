@@ -7,36 +7,67 @@
         "logstash.conf.template"
     ],
     "patterns": [
-        // {
-        //     "match": "(\"@.+\")",
-        //     "name": "entity.name.tag.logstash",
-        //     "comment": "Field"
-        // },
-        // {
-        //     "match": "(\"%{.+}\")",
-        //     "name": "entity.name.tag.logstash",
-        //     "comment": "Groked Field"
-        // },
-        // {
-        //     "match": "(\".+\")",
-        //     "name": "string.text.logstash",
-        //     "comment": "String values"
-        // },
         {
             "match": "^(input|filter|codec|output)",
             "name": "entity.name.type.class.logstash",
             "comment": "classes: inputs, codecs, filters and outputs"
         },
+        // {
+        //     "match": "(\\[)(\\w+)((,)(\\s*\\w+))?(\\])",
+        //     "name": "text.logstash",
+        //     "captures": {
+        //         "2": { "name": "entity.name.function.logstash" }
+        //     },
+        //     "comment": "Operators"
+        // },
         {
-            "match": "^(\\s+)(\\w+)(\\s+{)",
+            "match": "(==|!=|<|>|<=|>=|=~|!~|in|not in|and|or|nand|xor|!)",
+            "name": "keyword.operator.logstash",
+            "comment": "Operators"
+        },
+        {
+            "match": "(%{)(\\w*)(})",
+            "name": "entity.name.function.logstash",
+            "captures": {
+                "2": { "name": "entity.name.function.logstash" }
+            },
+            "comment": "Groked Field"
+        },
+        {
+            "match": "(\")(@\\w+)(\")",
+            "name": "string.text.logstash",
+            "captures": {
+                "2": { "name": "entity.name.function.logstash" }
+            },
+            "comment": "Field"
+        },
+        {
+            "match": "(if|else if)(\\s*)(\\[)(\\w*)(\\])(\\s*)(==|!=|<|>|<=|>=|=~|!~|in|not in|!)",
             "name": "text.logstash",
             "captures": {
-                "2": { "name": "entity.name.function.logstash"}
+                "1": { "name": "keyword.control.logstash" },
+                "4": { "name": "entity.name.function.logstash" },
+                "7": { "name": "keyword.operator.logstash" }
+            },
+            "comment": "complex if/else if statements"
+        },
+        {
+            "match": "(\")(\\w+)(\")",
+            "name": "string.text.logstash",
+            "comment": "String values"
+        },
+        {
+            "match": "^(\\s*)(\\w+)(\\s*{)(\\s*)?(\\w+)?(\\s*)?(=>)?(\\s*)?",
+            "name": "text.logstash",
+            "captures": {
+                "2": { "name": "entity.name.function.logstash" },
+                "5": { "name": "variable.text.logstash" },
+                "7": { "name": "keyword.operator.logstash" }
             },
             "comment": "functions: types of inputs, codecs, filters and outputs"
         },
         {
-            "match": "^(\\s+)?#.+",
+            "match": "^(\\s*)?#.+",
             "name": "comment.line.number-sign.logstash",
             "comment": "Comments"
         },
@@ -44,9 +75,9 @@
             "match": "^(\\s+)?(\\w+)(\\s+)?(=>)(\\s+)?(\\d+)",
             "name": "keyword.text.logstash",
             "captures": {
-                "2": { "name": "variable.text.logstash"},
-                "4": { "name": "keyword.operator.logstash"},
-                "6": { "name": "constant.numeric.logstash"}
+                "2": { "name": "variable.text.logstash" },
+                "4": { "name": "keyword.operator.logstash" },
+                "6": { "name": "constant.numeric.logstash" }
             },
             "comment": "Variables: Number values"
         },
@@ -54,8 +85,8 @@
             "match": "^(\\s+)?(\\w+)(\\s+)?(=>)(\\s+)?",
             "name": "keyword.text.logstash",
             "captures": {
-                "2": { "name": "variable.text.logstash"},
-                "4": { "name": "keyword.operator.logstash"}
+                "2": { "name": "variable.text.logstash" },
+                "4": { "name": "keyword.operator.logstash" }
             },
             "comment": "Variables: String values"
         }

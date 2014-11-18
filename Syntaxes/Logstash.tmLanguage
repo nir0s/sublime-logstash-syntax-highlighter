@@ -21,6 +21,14 @@
 			<string>entity.name.type.class.logstash</string>
 		</dict>
 		<dict>
+			<key>comment</key>
+			<string>Operators</string>
+			<key>match</key>
+			<string>(==|!=|&lt;|&gt;|&lt;=|&gt;=|=~|!~|in|not in|and|or|nand|xor|!)</string>
+			<key>name</key>
+			<string>keyword.operator.logstash</string>
+		</dict>
+		<dict>
 			<key>captures</key>
 			<dict>
 				<key>2</key>
@@ -30,9 +38,85 @@
 				</dict>
 			</dict>
 			<key>comment</key>
+			<string>Groked Field</string>
+			<key>match</key>
+			<string>(%{)(\w*)(})</string>
+			<key>name</key>
+			<string>entity.name.function.logstash</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.logstash</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Field</string>
+			<key>match</key>
+			<string>(")(@\w+)(")</string>
+			<key>name</key>
+			<string>string.text.logstash</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.logstash</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.logstash</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.logstash</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>complex if/else if statements</string>
+			<key>match</key>
+			<string>(if|else if)(\s*)(\[)(\w*)(\])(\s*)(==|!=|&lt;|&gt;|&lt;=|&gt;=|=~|!~|in|not in|!)</string>
+			<key>name</key>
+			<string>text.logstash</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>String values</string>
+			<key>match</key>
+			<string>(")(\w+)(")</string>
+			<key>name</key>
+			<string>string.text.logstash</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.logstash</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>variable.text.logstash</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.logstash</string>
+				</dict>
+			</dict>
+			<key>comment</key>
 			<string>functions: types of inputs, codecs, filters and outputs</string>
 			<key>match</key>
-			<string>^(\s+)(\w+)(\s+{)</string>
+			<string>^(\s*)(\w+)(\s*{)(\s*)?(\w+)?(\s*)?(=&gt;)?(\s*)?</string>
 			<key>name</key>
 			<string>text.logstash</string>
 		</dict>
@@ -40,7 +124,7 @@
 			<key>comment</key>
 			<string>Comments</string>
 			<key>match</key>
-			<string>^(\s+)?#.+</string>
+			<string>^(\s*)?#.+</string>
 			<key>name</key>
 			<string>comment.line.number-sign.logstash</string>
 		</dict>
