@@ -1,7 +1,11 @@
 {
     "name": "Logstash",
     "scopeName": "text.logstash",
-    "fileTypes": ["logstash.conf"],
+    "fileTypes": [
+        "logstash.conf",
+        "logstash.conf.j2",
+        "logstash.conf.template",
+    ],
     "patterns": [
         {
             "match": "(\"@.+\")",
