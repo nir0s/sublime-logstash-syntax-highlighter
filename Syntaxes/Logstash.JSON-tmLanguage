@@ -12,14 +12,15 @@
             "name": "entity.name.type.class.logstash",
             "comment": "classes: inputs, codecs, filters and outputs"
         },
-        // {
-        //     "match": "(\\[)(\\w+)((,)(\\s*\\w+))?(\\])",
-        //     "name": "text.logstash",
-        //     "captures": {
-        //         "2": { "name": "entity.name.function.logstash" }
-        //     },
-        //     "comment": "Operators"
-        // },
+       {
+            "match": "((and|or)(\\s+)(\\[)(\\w*)(\\]))+",
+            "name": "text.logstash",
+            "captures": {
+                "2": { "name": "keyword.operator.logstash" },
+                "5": { "name": "entity.name.function.logstash" }
+            },
+            "comment": "complex if/else if statements"
+        },
         {
             "match": "(==|!=|<|>|<=|>=|=~|!~|in|not in|and|or|nand|xor|!)",
             "name": "keyword.operator.logstash",
@@ -34,27 +35,27 @@
             "comment": "Groked Field"
         },
         {
-            "match": "(\")(@\\w+)(\")",
+            "match": "(\")(.+?)[^\"]*(\")",
             "name": "string.text.logstash",
-            "captures": {
-                "2": { "name": "entity.name.function.logstash" }
-            },
-            "comment": "Field"
+            "comment": "String values"
         },
         {
-            "match": "(if|else if)(\\s*)(\\[)(\\w*)(\\])(\\s*)(==|!=|<|>|<=|>=|=~|!~|in|not in|!)",
+            "match": "(if|else if)(\\s+)(\\[)(\\w*)(\\])(\\s*)(==|!=|<|>|<=|>=|=~|!~|in|not in|!)",
             "name": "text.logstash",
             "captures": {
                 "1": { "name": "keyword.control.logstash" },
                 "4": { "name": "entity.name.function.logstash" },
                 "7": { "name": "keyword.operator.logstash" }
             },
-            "comment": "complex if/else if statements"
+            "comment": "if/else if statements"
         },
         {
-            "match": "(\")(\\w+)(\")",
-            "name": "string.text.logstash",
-            "comment": "String values"
+            "match": "(else)(\\s+)({)",
+            "name": "text.logstash",
+            "captures": {
+                "1": { "name": "keyword.control.logstash" }
+            },
+            "comment": "else statements"
         },
         {
             "match": "^(\\s*)(\\w+)(\\s*{)(\\s*)?(\\w+)?(\\s*)?(=>)?(\\s*)?",
@@ -72,7 +73,7 @@
             "comment": "Comments"
         },
         {
-            "match": "^(\\s+)?(\\w+)(\\s+)?(=>)(\\s+)?(\\d+)",
+            "match": "^(\\s*)?(\\w+)(\\s*)?(=>)(\\s*)?(\\d+)",
             "name": "keyword.text.logstash",
             "captures": {
                 "2": { "name": "variable.text.logstash" },
@@ -82,7 +83,7 @@
             "comment": "Variables: Number values"
         },
         {
-            "match": "^(\\s+)?(\\w+)(\\s+)?(=>)(\\s+)?",
+            "match": "^(\\s*)?(\\w+)(\\s*)?(=>)(\\s*)?",
             "name": "keyword.text.logstash",
             "captures": {
                 "2": { "name": "variable.text.logstash" },
