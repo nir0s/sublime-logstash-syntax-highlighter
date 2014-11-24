@@ -1,9 +1,15 @@
 sublime-logstash-syntax-highlighter
 ===================================
 
-Logstash DSL Syntax Highlighting for Sublime Text 3
+Logstash DSL Syntax Highlighting for Sublime Text 3 (Might also work on ST2... but it wasn't tested).
 
-Files must be named "logstash.conf"
+Will auto-recognize files named:
+
+* logstash.conf
+* logstash.conf.template
+* logstash.conf.j2
+
+Please let me know if you're using additional formats that should be added to the list.
 
 See `example` dir for a logstash.conf file.
 
