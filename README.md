@@ -23,3 +23,5 @@ Make sure you follow [this](http://docs.sublimetext.info/en/latest/extensibility
 Also make sure you're using [AAAPackageDev](https://bitbucket.org/guillermooo/aaapackagedev) to convert JSON to tmLanguage files.
 
 ![Screenshot!](https://github.com/nir0s/sublime-logstash-syntax-highlighter/raw/master/scr.png)
+
+btw, this is pretty much in Alpha now. Please don't compain. Or.. do complain.. but send pull requests while you're at it.
