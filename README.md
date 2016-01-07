@@ -3,7 +3,7 @@ sublime-logstash-syntax-highlighter
 
 Logstash DSL Syntax Highlighting for Sublime Text 3 (Might also work on ST2... but it wasn't tested).
 
-Install using [Sublime Package Control](https://sublime.wbond.net/installation).
+Install using [Sublime Package Control](https://packagecontrol.io/installation).
 Just look for `Logstash Syntax`.
 
 For the latest version, clone this repo and put the files from the `Syntaxes` dir in the packages/user dir in your ST config dir.
