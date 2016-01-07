@@ -1,0 +1,72 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+name: Logstash
+scopeName: text.logstash
+fileTypes: [logstash.conf, logstash.conf.j2, logstash.conf.template]
+uuid: ca03e751-04ef-4330-9a6b-9b99aae1c418
+
+patterns:
+- comment: 'classes: inputs, codecs, filters and outputs'
+  name: entity.name.type.class.logstash
+  match: ^(input|filter|codec|output)
+
+- comment: complex if/else if statements
+  name: text.logstash
+  match: ((and|or)(\s+)(\[)(\w*)(\]))+
+  captures:
+    '2': {name: keyword.operator.logstash}
+    '5': {name: entity.name.function.logstash}
+
+- comment: Operators
+  name: keyword.operator.logstash
+  match: (==|!=|<|>|<=|>=|=~|!~|in|not in|and|or|nand|xor|!)
+
+- comment: Groked Field
+  name: entity.name.function.logstash
+  match: (%{)(\w*)(})
+  captures:
+    '2': {name: entity.name.function.logstash}
+
+- comment: String values
+  name: string.text.logstash
+  match: (")(.+?)[^"]*(")
+
+- comment: if/else if statements
+  name: text.logstash
+  match: (if|else if)(\s+)(\[)(\w*)(\])(\s*)(==|!=|<|>|<=|>=|=~|!~|in|not in|!)
+  captures:
+    '1': {name: keyword.control.logstash}
+    '4': {name: entity.name.function.logstash}
+    '7': {name: keyword.operator.logstash}
+
+- comment: else statements
+  name: text.logstash
+  match: (else)(\s+)({)
+  captures:
+    '1': {name: keyword.control.logstash}
+
+- comment: 'functions: types of inputs, codecs, filters and outputs'
+  name: text.logstash
+  match: ^(\s*)(\w+)(\s*{)(\s*)?(\w+)?(\s*)?(=>)?(\s*)?
+  captures:
+    '2': {name: entity.name.function.logstash}
+    '5': {name: variable.text.logstash}
+    '7': {name: keyword.operator.logstash}
+
+- comment: Comments
+  name: comment.line.number-sign.logstash
+  match: ^(\s*)?#.+
+
+- comment: 'Variables: Number values'
+  name: keyword.text.logstash
+  match: ^(\s*)?(\w+)(\s*)?(=>)(\s*)?(\d+)
+  captures:
+    '2': {name: variable.text.logstash}
+    '4': {name: keyword.operator.logstash}
+    '6': {name: constant.numeric.logstash}
+
+- comment: 'Variables: String values'
+  name: keyword.text.logstash
+  match: ^(\s*)?(\w+)(\s*)?(=>)(\s*)?
+  captures:
+    '2': {name: variable.text.logstash}
+    '4': {name: keyword.operator.logstash}
