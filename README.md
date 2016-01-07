@@ -20,7 +20,7 @@ See `example` dir for a logstash.conf file.
 
 Make sure you follow [this](http://docs.sublimetext.info/en/latest/extensibility/syntaxdefs.html) for development.
 
-Also make sure you're using [AAAPackageDev](https://bitbucket.org/guillermooo/aaapackagedev) to convert YAML to tmLanguage files.
+Also make sure you're using [AAAPackageDev](https://github.com/SublimeText/AAAPackageDev) to convert YAML to tmLanguage files.
 
 ![Screenshot!](https://github.com/nir0s/sublime-logstash-syntax-highlighter/raw/master/scr.png)
 
