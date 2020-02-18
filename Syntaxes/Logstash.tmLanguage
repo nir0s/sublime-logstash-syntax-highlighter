@@ -16,7 +16,7 @@
 			<key>comment</key>
 			<string>classes: inputs, codecs, filters and outputs</string>
 			<key>match</key>
-			<string>^(input|filter|codec|output)</string>
+			<string>^(input|filter|codec|output)\b</string>
 			<key>name</key>
 			<string>entity.name.type.class.logstash</string>
 		</dict>
@@ -37,7 +37,7 @@
 			<key>comment</key>
 			<string>complex if/else if statements</string>
 			<key>match</key>
-			<string>((and|or)(\s+)(\[)(\w*)(\]))+</string>
+			<string>\b((and|or)(\s+)(\[)(\w*)(\]))+</string>
 			<key>name</key>
 			<string>text.logstash</string>
 		</dict>
@@ -45,7 +45,7 @@
 			<key>comment</key>
 			<string>Operators</string>
 			<key>match</key>
-			<string>(==|!=|&lt;|&gt;|&lt;=|&gt;=|=~|!~|in|not in|and|or|nand|xor|!)</string>
+			<string>\b(==|!=|&lt;|&gt;|&lt;=|&gt;=|=~|!~|in|not in|and|or|nand|xor|!)\b</string>
 			<key>name</key>
 			<string>keyword.operator.logstash</string>
 		</dict>
@@ -61,7 +61,7 @@
 			<key>comment</key>
 			<string>Groked Field</string>
 			<key>match</key>
-			<string>(%{)(\w*)(})</string>
+			<string>\b(%{)(\w*)(})\b</string>
 			<key>name</key>
 			<string>entity.name.function.logstash</string>
 		</dict>
@@ -95,7 +95,7 @@
 			<key>comment</key>
 			<string>if/else if statements</string>
 			<key>match</key>
-			<string>(if|else if)(\s+)(\[)(\w*)(\])(\s*)(==|!=|&lt;|&gt;|&lt;=|&gt;=|=~|!~|in|not in|!)</string>
+			<string>\b(if|else if)(\s+)(\[)(\w*)(\])(\s*)(==|!=|&lt;|&gt;|&lt;=|&gt;=|=~|!~|in|not in|!)\b</string>
 			<key>name</key>
 			<string>text.logstash</string>
 		</dict>
@@ -111,7 +111,7 @@
 			<key>comment</key>
 			<string>else statements</string>
 			<key>match</key>
-			<string>(else)(\s+)({)</string>
+			<string>\b(else)(\s+)({)</string>
 			<key>name</key>
 			<string>text.logstash</string>
 		</dict>
