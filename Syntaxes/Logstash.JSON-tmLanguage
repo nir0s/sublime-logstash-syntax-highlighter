@@ -8,12 +8,12 @@
     ],
     "patterns": [
         {
-            "match": "^(input|filter|codec|output)",
+            "match": "^(input|filter|codec|output)\\b",
             "name": "entity.name.type.class.logstash",
             "comment": "classes: inputs, codecs, filters and outputs"
         },
        {
-            "match": "((and|or)(\\s+)(\\[)(\\w*)(\\]))+",
+            "match": "\\b((and|or)(\\s+)(\\[)(\\w*)(\\]))+",
             "name": "text.logstash",
             "captures": {
                 "2": { "name": "keyword.operator.logstash" },
@@ -22,12 +22,12 @@
             "comment": "complex if/else if statements"
         },
         {
-            "match": "(==|!=|<|>|<=|>=|=~|!~|in|not in|and|or|nand|xor|!)",
+            "match": "\\b(==|!=|<|>|<=|>=|=~|!~|in|not in|and|or|nand|xor|!)\\b",
             "name": "keyword.operator.logstash",
             "comment": "Operators"
         },
         {
-            "match": "(%{)(\\w*)(})",
+            "match": "\\b(%{)(\\w*)(})\\b",
             "name": "entity.name.function.logstash",
             "captures": {
                 "2": { "name": "entity.name.function.logstash" }
@@ -40,7 +40,7 @@
             "comment": "String values"
         },
         {
-            "match": "(if|else if)(\\s+)(\\[)(\\w*)(\\])(\\s*)(==|!=|<|>|<=|>=|=~|!~|in|not in|!)",
+            "match": "\\b(if|else if)(\\s+)(\\[)(\\w*)(\\])(\\s*)(==|!=|<|>|<=|>=|=~|!~|in|not in|!)\\b",
             "name": "text.logstash",
             "captures": {
                 "1": { "name": "keyword.control.logstash" },
@@ -50,7 +50,7 @@
             "comment": "if/else if statements"
         },
         {
-            "match": "(else)(\\s+)({)",
+            "match": "\\b(else)(\\s+)({)",
             "name": "text.logstash",
             "captures": {
                 "1": { "name": "keyword.control.logstash" }
